@@ -3,10 +3,22 @@ const main = () => {
   const buttonSearchElement = document.querySelector("#searchButtonElement");
   const clubListElement = document.querySelector("#clubList");
 
+  // Promise
   const onButtonSearchClicked = () => {
-    const dataSource = new DataSource(renderResult, fallbackResult);
-    dataSource.searchClub(searchElement.value);
+    DataSource.searchClub(searchElement.value)
+      .then(renderResult)
+      .catch(fallbackResult);
   };
+
+  //   Async Await version
+  //   const onButtonSearchClicked = async () => {
+  //     try {
+  //       const result = await DataSource.searchClub(searchElement.value);
+  //       renderResult(result);
+  //     } catch (message) {
+  //       fallbackResult(message);
+  //     }
+  //   };
 
   const renderResult = results => {
     clubListElement.innerHTML = "";
