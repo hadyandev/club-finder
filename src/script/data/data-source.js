@@ -1,3 +1,5 @@
+import clubs from "./clubs.js";
+
 class DataSource {
   //   remove constructor
 
@@ -15,3 +17,5 @@ class DataSource {
     });
   }
 }
+
+export default DataSource;
